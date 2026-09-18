@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🍽️ Family Feast Planner</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
     <h1>🍽️ Family Feast Planner</h1>
 
-    <nav>
-        <button onclick="scrollToSection('recipes')">Recipes</button>
-        <button onclick="scrollToSection('planner')">Meal Planner</button>
-        <button onclick="scrollToSection('shopping')">Shopping List</button>
-    </nav>
+    <div class="nav-buttons">
+        <button onclick="scrollToSection('recipes')">🍝 Recipes</button>
+        <button onclick="scrollToSection('planner')">📅 Planner</button>
+        <button onclick="scrollToSection('shopping')">🛒 Shopping</button>
+    </div>
 </header>
 
 <section class="hero">
-
     <h2>Healthy Family Dinners Made Easy</h2>
 
     <p>
@@ -33,23 +29,21 @@
         🎲 What's For Dinner Tonight?
     </button>
 
+    <div id="result"></div>
 </section>
 
-<section id="result" class="result"></section>
+<section id="recipes">
 
-<section id="recipes" class="recipes">
-
-    <h2>Browse Recipes</h2>
+    <h2>🍝 Browse Recipes</h2>
 
     <div class="filters">
 
         <select id="cuisineFilter" onchange="filterRecipes()">
             <option value="all">All Cuisines</option>
             <option value="Italian">Italian</option>
-            <option value="Mexican">Mexican</option>
             <option value="British">British</option>
+            <option value="Mexican">Mexican</option>
             <option value="American">American</option>
-            <option value="Japanese">Japanese</option>
         </select>
 
         <select id="typeFilter" onchange="filterRecipes()">
@@ -58,7 +52,6 @@
             <option value="Beef">Beef</option>
             <option value="Fish">Fish</option>
             <option value="Vegetarian">Vegetarian</option>
-            <option value="Turkey">Turkey</option>
         </select>
 
     </div>
@@ -67,7 +60,7 @@
 
 </section>
 
-<section id="planner" class="planner">
+<section id="planner">
 
     <h2>📅 Weekly Meal Planner</h2>
 
@@ -75,7 +68,7 @@
 
 </section>
 
-<section id="shopping" class="shopping">
+<section id="shopping">
 
     <h2>🛒 Shopping List</h2>
 
