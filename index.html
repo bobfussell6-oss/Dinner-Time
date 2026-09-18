@@ -1,57 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Family Feast Planner</title>
+<html>
 
-    <link rel="stylesheet" href="style.css">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Family Feast Planner</title>
+
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
     <h1>🍽️ Family Feast Planner</h1>
-    <p>Healthy dinners for busy families</p>
+
+    <nav>
+        <button onclick="scrollToSection('recipes')">Recipes</button>
+        <button onclick="scrollToSection('planner')">Meal Planner</button>
+        <button onclick="scrollToSection('shopping')">Shopping List</button>
+    </nav>
 </header>
 
 <section class="hero">
 
-    <h2>🍽️ Family Meal Planning Made Easy</h2>
+    <h2>🍽️ Healthy Family Dinners Made Easy</h2>
 
     <p>
-        Quick, healthy and family-friendly meals for busy weeknights.
+        Quick, healthy and kid-friendly meals
+        for busy weeknights.
     </p>
 
-    <button>🎲 What's For Dinner Tonight?</button>
+    <button onclick="pickDinner()">
+        🎲 What's For Dinner Tonight?
+    </button>
 
 </section>
 
-<section class="recipes">
+<section id="result" class="result"></section>
+
+<section id="recipes" class="recipes">
 
     <h2>⭐ Featured Family Favourites</h2>
 
-    <div class="recipe-card">
-        <h3>🍝 Hidden Veg Bolognese</h3>
-        <p>Prep: 10 mins | Cook: 25 mins</p>
-        <p>Kid Rating: ⭐⭐⭐⭐⭐</p>
-    </div>
-
-    <div class="recipe-card">
-        <h3>🍗 Creamy Chicken Pasta</h3>
-        <p>Prep: 10 mins | Cook: 20 mins</p>
-        <p>Kid Rating: ⭐⭐⭐⭐⭐</p>
-    </div>
-
-    <div class="recipe-card">
-        <h3>🌮 Chicken Fajita Rice Bowls</h3>
-        <p>Prep: 15 mins | Cook: 15 mins</p>
-        <p>Kid Rating: ⭐⭐⭐⭐</p>
-    </div>
+    <div id="recipeContainer" class="recipe-grid"></div>
 
 </section>
 
+<section id="planner" class="planner">
+
+    <h2>📅 Weekly Meal Planner</h2>
+
+    <div id="plannerGrid"></div>
+
+</section>
+
+<section id="shopping" class="shopping">
+
+    <h2>🛒 Shopping List</h2>
+
+    <button onclick="generateShoppingList()">
+        Generate Shopping List
+    </button>
+
+    <ul id="shoppingList"></ul>
+
+</section>
+
+recipes.jsscript>
 <script src="app.js"></script>
 
 </body>
+
 </html>
