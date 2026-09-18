@@ -1,1 +1,2 @@
-alert("Welcome to Family Feast Planner!");
+alert("Hello from JavaScript!");
+``
