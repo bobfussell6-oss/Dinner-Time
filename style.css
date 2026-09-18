@@ -45,3 +45,24 @@ button {
 button:hover {
     background: #e55a2b;
 }
+.recipes {
+    padding: 30px;
+}
+
+.recipe-card {
+    background: white;
+    padding: 20px;
+    margin: 15px auto;
+    border-radius: 15px;
+    max-width: 500px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.recipe-card h3 {
+    margin-top: 0;
+}
+
+.recipe-card:hover {
+    transform: translateY(-3px);
+}
