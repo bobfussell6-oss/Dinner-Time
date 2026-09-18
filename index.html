@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍽️ Family Feast Planner</title>
 
-<title>Family Feast Planner</title>
-
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -24,11 +23,10 @@
 
 <section class="hero">
 
-    <h2>🍽️ Healthy Family Dinners Made Easy</h2>
+    <h2>Healthy Family Dinners Made Easy</h2>
 
     <p>
-        Quick, healthy and kid-friendly meals
-        for busy weeknights.
+        Quick, healthy and family-friendly meals for busy weeknights.
     </p>
 
     <button onclick="pickDinner()">
@@ -41,38 +39,39 @@
 
 <section id="recipes" class="recipes">
 
-    <h2>⭐ Featured Family Favourites</h2>
-
-    <div id="recipeContainer" class="recipe-grid"></div>
-
-<section id="recipes" class="recipes">
-
-    <h2>⭐ Featured Family Favourites</h2>
+    <h2>Browse Recipes</h2>
 
     <div class="filters">
 
-        <select id="cuisineFilter">
+        <select id="cuisineFilter" onchange="filterRecipes()">
             <option value="all">All Cuisines</option>
             <option value="Italian">Italian</option>
             <option value="Mexican">Mexican</option>
             <option value="British">British</option>
+            <option value="American">American</option>
+            <option value="Japanese">Japanese</option>
         </select>
 
-        <select id="typeFilter">
+        <select id="typeFilter" onchange="filterRecipes()">
             <option value="all">All Types</option>
             <option value="Chicken">Chicken</option>
             <option value="Beef">Beef</option>
             <option value="Fish">Fish</option>
             <option value="Vegetarian">Vegetarian</option>
+            <option value="Turkey">Turkey</option>
         </select>
-
-        <button onclick="filterRecipes()">
-            Filter Recipes
-        </button>
 
     </div>
 
     <div id="recipeContainer" class="recipe-grid"></div>
+
+</section>
+
+<section id="planner" class="planner">
+
+    <h2>📅 Weekly Meal Planner</h2>
+
+    <div id="plannerGrid"></div>
 
 </section>
 
@@ -88,9 +87,7 @@
 
 </section>
 
-<script src="recipes.js"></script>
 <script src="app.js"></script>
 
 </body>
-
 </html>
