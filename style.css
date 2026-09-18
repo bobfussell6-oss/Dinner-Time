@@ -6,20 +6,20 @@
 
 body{
     font-family:Arial,sans-serif;
-    background:#fdf6e3;
+    background:#fff7e8;
     color:#333;
 }
 
 header{
     background:white;
-    padding:20px;
     text-align:center;
-    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    padding:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
     position:sticky;
     top:0;
 }
 
-nav{
+.nav-buttons{
     margin-top:15px;
 }
 
@@ -27,69 +27,57 @@ button{
     background:#ff6b35;
     color:white;
     border:none;
-    padding:12px 20px;
+    padding:12px 18px;
     border-radius:10px;
     cursor:pointer;
     margin:5px;
 }
 
 button:hover{
-    background:#e4572e;
+    background:#e45825;
 }
 
 .hero{
     text-align:center;
-    padding:60px 20px;
+    padding:50px 20px;
 }
 
 .hero h2{
-    font-size:2.2rem;
-    margin-bottom:15px;
+    margin-bottom:10px;
 }
 
-.result{
-    text-align:center;
-    font-size:1.3rem;
-    padding:20px;
+#result{
+    margin-top:20px;
+    font-size:1.2rem;
+    font-weight:bold;
 }
 
-.recipes,
-.planner,
-.shopping{
+section{
+    padding:30px;
     max-width:1200px;
     margin:auto;
-    padding:40px 20px;
 }
 
 .filters{
-    display:flex;
-    gap:10px;
     margin:20px 0;
-    flex-wrap:wrap;
 }
 
 .filters select{
     padding:10px;
-    border-radius:8px;
+    margin-right:10px;
 }
 
 .recipe-grid{
     display:grid;
-    grid-template-columns:
-    repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
 }
 
 .recipe-card{
     background:white;
-    padding:20px;
     border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    transition:0.3s;
-}
-
-.recipe-card:hover{
-    transform:translateY(-5px);
+    padding:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
 }
 
 .recipe-card h3{
@@ -98,13 +86,12 @@ button:hover{
 }
 
 .recipe-card p{
-    margin:8px 0;
+    margin:5px 0;
 }
 
 #plannerGrid{
     display:grid;
-    grid-template-columns:
-    repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
     gap:15px;
 }
 
@@ -112,10 +99,10 @@ button:hover{
     background:white;
     padding:15px;
     border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
 }
 
 #shoppingList{
+    margin-top:15px;
     padding-left:20px;
-    margin-top:20px;
 }
