@@ -1,207 +1,137 @@
-const recipeContainer =
-document.getElementById("recipeContainer");
+console.log("Family Feast Planner Loaded");
 
-const days = [
-"Monday",
-"Tuesday",
-"Wednesday",
-"Thursday",
-"Friday",
-"Saturday",
-"Sunday"
+// ====================
+// RECIPES DATABASE
+// ====================
+
+const recipes = [
+{
+    id: 1,
+    name: "Hidden Veg Bolognese",
+    cuisine: "Italian",
+    type: "Beef",
+    prepTime: 10,
+    cookTime: 25,
+    kidRating: 5,
+    healthyRating: 5,
+    ingredients: [
+        "500g Beef Mince",
+        "2 Carrots",
+        "1 Courgette",
+        "1 Onion",
+        "Pasta",
+        "Tomato Sauce"
+    ]
+},
+{
+    id: 2,
+    name: "Creamy Chicken Pasta",
+    cuisine: "Italian",
+    type: "Chicken",
+    prepTime: 10,
+    cookTime: 20,
+    kidRating: 5,
+    healthyRating: 4,
+    ingredients: [
+        "500g Chicken Breast",
+        "300g Pasta",
+        "Cream Cheese",
+        "1 Pepper"
+    ]
+},
+{
+    id: 3,
+    name: "Chicken Fajita Rice Bowls",
+    cuisine: "Mexican",
+    type: "Chicken",
+    prepTime: 15,
+    cookTime: 15,
+    kidRating: 4,
+    healthyRating: 4,
+    ingredients: [
+        "Chicken Breast",
+        "Rice",
+        "Peppers",
+        "Onion"
+    ]
+},
+{
+    id: 4,
+    name: "Turkey Burgers",
+    cuisine: "American",
+    type: "Turkey",
+    prepTime: 15,
+    cookTime: 15,
+    kidRating: 5,
+    healthyRating: 4,
+    ingredients: [
+        "Turkey Mince",
+        "Burger Buns",
+        "Lettuce",
+        "Tomato"
+    ]
+},
+{
+    id: 5,
+    name: "Fish Finger Wraps",
+    cuisine: "British",
+    type: "Fish",
+    prepTime: 5,
+    cookTime: 15,
+    kidRating: 5,
+    healthyRating: 3,
+    ingredients: [
+        "Fish Fingers",
+        "Wraps",
+        "Lettuce",
+        "Mayonnaise"
+    ]
+},
+{
+    id: 6,
+    name: "Mac and Cheese",
+    cuisine: "American",
+    type: "Vegetarian",
+    prepTime: 10,
+    cookTime: 20,
+    kidRating: 5,
+    healthyRating: 2,
+    ingredients: [
+        "Pasta",
+        "Cheddar Cheese",
+        "Milk"
+    ]
+},
+{
+    id: 7,
+    name: "Chicken Katsu Curry",
+    cuisine: "Japanese",
+    type: "Chicken",
+    prepTime: 15,
+    cookTime: 25,
+    kidRating: 4,
+    healthyRating: 4,
+    ingredients: [
+        "Chicken Breast",
+        "Rice",
+        "Katsu Sauce"
+    ]
+},
+{
+    id: 8,
+    name: "Loaded Jacket Potatoes",
+    cuisine: "British",
+    type: "Vegetarian",
+    prepTime: 5,
+    cookTime: 20,
+    kidRating: 4,
+    healthyRating: 4,
+    ingredients: [
+        "Jacket Potatoes",
+        "Cheese",
+        "Beans"
+    ]
+}
 ];
 
-function displayRecipes() {
-
-recipes.forEach(recipe => {
-
-recipeContainer.innerHTML += `
-
-<div class="recipe-card">
-
-<h3>${recipe.name}</h3>
-
-<p>
-⏱ Prep ${recipe.prepTime} mins
-</p>
-
-<p>
-🔥 Cook ${recipe.cookTime} mins
-</p>
-
-<p>
-⭐ Kid Rating ${recipe.kidRating}/5
-</p>
-
-<p>
-🥦 Healthy ${recipe.healthyRating}/5
-</p>
-
-<button onclick="addToPlanner('${recipe.name}')">
-
-Add To Planner
-
-</button>
-
-</div>
-
-`;
-
-});
-
-}
-
-displayRecipes();
-
-function pickDinner() {
-
-const chosen =
-
-recipes[
-Math.floor(
-Math.random() * recipes.length
-)
-];
-
-document.getElementById("result")
-.innerHTML =
-
-`<h3>Tonight's Dinner:</h3>
-<p>${chosen.name}</p>`;
-
-}
-
-const plannerGrid =
-document.getElementById("plannerGrid");
-
-days.forEach(day => {
-
-plannerGrid.innerHTML += `
-
-<div class="day-card">
-
-<strong>${day}</strong>
-
-<p id="${day}">
-No Meal Chosen
-</p>
-
-</div>
-
-`;
-
-});
-
-let currentDay = 0;
-
-function addToPlanner(meal) {
-
-document.getElementById(
-days[currentDay]
-).innerText = meal;
-
-currentDay++;
-
-if(currentDay > 6){
-
-currentDay = 0;
-
-}
-
-savePlanner();
-
-}
-
-function savePlanner(){
-
-const data = {};
-
-days.forEach(day => {
-
-data[day] =
-document.getElementById(day)
-.innerText;
-
-});
-
-localStorage.setItem(
-"mealplanner",
-JSON.stringify(data)
-);
-
-}
-
-function loadPlanner(){
-
-const planner =
-JSON.parse(
-localStorage.getItem(
-"mealplanner"
-)
-);
-
-if(!planner) return;
-
-days.forEach(day => {
-
-document.getElementById(day)
-.innerText = planner[day];
-
-});
-
-}
-
-loadPlanner();
-
-function generateShoppingList(){
-
-let ingredients = [];
-
-recipes.forEach(recipe => {
-
-days.forEach(day => {
-
-const meal =
-document.getElementById(day)
-.innerText;
-
-if(meal === recipe.name){
-
-ingredients.push(
-...recipe.ingredients
-);
-
-}
-
-});
-
-});
-
-ingredients =
-[...new Set(ingredients)];
-
-const list =
-document.getElementById(
-"shoppingList"
-);
-
-list.innerHTML = "";
-
-ingredients.forEach(item => {
-
-list.innerHTML +=
-`<li>${item}</li>`;
-
-});
-
-}
-
-function scrollToSection(id){
-
-document
-.getElementById(id)
-.scrollIntoView({
-behavior:"smooth"
-});
-
-}
+// ==================
