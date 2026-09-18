@@ -45,13 +45,34 @@
 
     <div id="recipeContainer" class="recipe-grid"></div>
 
-</section>
+<section id="recipes" class="recipes">
 
-<section id="planner" class="planner">
+    <h2>⭐ Featured Family Favourites</h2>
 
-    <h2>📅 Weekly Meal Planner</h2>
+    <div class="filters">
 
-    <div id="plannerGrid"></div>
+        <select id="cuisineFilter">
+            <option value="all">All Cuisines</option>
+            <option value="Italian">Italian</option>
+            <option value="Mexican">Mexican</option>
+            <option value="British">British</option>
+        </select>
+
+        <select id="typeFilter">
+            <option value="all">All Types</option>
+            <option value="Chicken">Chicken</option>
+            <option value="Beef">Beef</option>
+            <option value="Fish">Fish</option>
+            <option value="Vegetarian">Vegetarian</option>
+        </select>
+
+        <button onclick="filterRecipes()">
+            Filter Recipes
+        </button>
+
+    </div>
+
+    <div id="recipeContainer" class="recipe-grid"></div>
 
 </section>
 
