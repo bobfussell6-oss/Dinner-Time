@@ -1,112 +1,61 @@
-const recipes = [
-
+con*t recipes = [
 {
-name:"Hidden Veg Bolognese",
+name:"Hidden Veg B*lognese",
 cuisine:"Italian",
-type:"Beef",
+type:*Beef",
 prepTime:10,
 cookTime:25,
-kidRating:5,
+k*dRating:5,
 healthyRating:5,
-ingredients:[
-"Beef Mince",
-"Carrots",
-"Pasta",
-"Onion"
-]
+ingred*ents:["Beef Mince","Carrots","Past*"]
 },
-
 {
-name:"Creamy Chicken Pasta",
+name:"Creamy Chicken Pasta*,
 cuisine:"Italian",
-type:"Chicken",
+type:"Chicken*,
 prepTime:10,
 cookTime:20,
-kidRating:5,
+kidRat*ng:5,
 healthyRating:4,
-ingredients:[
-"Chicken Breast",
-"Pasta",
-"Cream Cheese"
-]
+ingredients*["Chicken Breast","Pasta","Cream C*eese"]
 },
-
 {
-name:"Chicken Fajita Rice Bowls",
+name:"Chicken Fajita R*ce Bowls",
 cuisine:"Mexican",
-type:"Chicken",
+type*"Chicken",
 prepTime:15,
-cookTime:15,
+cookTime:1*,
 kidRating:4,
 healthyRating:4,
-ingredients:[
-"Chicken",
-"Rice",
-"Peppers"
-]
-},
-
-{
-name:"Fish Finger Wraps",
-cuisine:"British",
-type:"Fish",
-prepTime:5,
-cookTime:15,
-kidRating:5,
-healthyRating:3,
-ingredients:[
-"Fish Fingers",
-"Wraps",
-"Lettuce"
-]
-},
-
-{
-name:"Mac and Cheese",
-cuisine:"American",
-type:"Vegetarian",
-prepTime:10,
-cookTime:20,
-kidRating:5,
-healthyRating:2,
-ingredients:[
-"Pasta",
-"Cheese",
-"Milk"
-]
+in*redients:["Chicken","Rice","Pepper*"]
 }
-
 ];
 
 const recipeContainer =
-document.getElementById("recipeContainer");
+d*cument.getElementById("recipeConta*ner");
 
-function displayRecipes(recipeList = recipes){
+function displayRecipes(re*ipeList = recipes){
 
-recipeContainer.innerHTML = "";
+recipeContain*r.innerHTML = "";
 
-recipeList.forEach(recipe=>{
+recipeList.forE*ch(recipe => {
 
-recipeContainer.innerHTML += `
-<div class="recipe-card">
+recipeContainer.in*erHTML += `
+<div class="recipe-car*">
 
 <h3>${recipe.name}</h3>
 
-<p>🍽 ${recipe.cuisine}</p>
+<p>🍽*${recipe.cuisine}</p>
 
-<p>🥩 ${recipe.type}</p>
+<p>🥩 ${rec*pe.type}</p>
 
-<p>⏱ ${recipe.prepTime} mins</p>
+<p>⏱ ${recipe.prepTi*e} mins</p>
 
-<p>🔥 ${recipe.cookTime} mins</p>
+<p>🔥 ${recipe.cookTi*e} mins</p>
 
-<p>⭐ ${recipe.kidRating}/5</p>
+<p>⭐ ${recipe.kidRati*g}/5</p>
 
-<p>🥦 ${recipe.healthyRating}/5</p>
-
-<button onclick="addToPlanner('${recipe.name}')">
-Add To Planner
-</button>
+<p>🥦 ${recipe.healthyRa*ing}/5</p>
 
 </div>
 `;
@@ -115,126 +64,49 @@ Add To Planner
 
 }
 
-displayRecipes();
+dis*layRecipes();
 
-function filterRecipes(){
+function filterReci*es(){
 
 const cuisine =
-document.getElementById("cuisineFilter").value;
+document.ge*ElementById("cuisineFilter").value*
 
 const type =
-document.getElementById("typeFilter").value;
+document.getElement*yId("typeFilter").value;
 
-const filtered = recipes.filter(recipe=>{
-
+const fi*tered = recipes.filter(recipe => {*
 const cuisineMatch =
-cuisine === "all" ||
-recipe.cuisine === cuisine;
+cuisine === *all" ||
+recipe.cuisine === cuisine*
 
 const typeMatch =
-type === "all" ||
+type === "all"*||
 recipe.type === type;
 
-return cuisineMatch && typeMatch;
+return c*isineMatch && typeMatch;
 
 });
 
-displayRecipes(filtered);
+dis*layRecipes(filtered);
 
 }
 
-function pickDinner(){
+function*pickDinner(){
 
-const randomRecipe =
-recipes[Math.floor(Math.random()*recipes.length)];
+const recipe =
+reci*es[Math.floor(Math.random()*recipe*.length)];
 
-document.getEle*entById("result").innerHTML =
-`Ton*ght: ${randomRecipe.name}`;
-
-}
-
-co*st days = [
-"Monday",
-"Tuesday",
-"Wednesday",
-"Thursday",
-"Friday",
-"Saturday",
-"Sunday"
-];
-
-const plann*rGrid =
-document.getElementById("p*annerGrid");
-
-days.forEach(day=>{
-*plannerGrid.innerHTML += `
-<div cl*ss="day-card">
-<strong>${day}</str*ng>
-<p id="${day}">No Meal Selecte*</p>
-</div>
-`;
-
-});
-
-let currentDa* = 0;
-
-function addToPlanner(meal)*
-
-document.getElementById(
-days[currentDay]
-).innerText = meal;
-
-curr*ntDay++;
-
-if(currentDay > 6){
-curr*ntDay = 0;
-}
+document.getElementByI*("result").innerHTML =
+`🍽️ Tonigh*: ${recipe.name}`;
 
 }
 
-function generate*hoppingList(){
+function sc*ollToSection(id){
 
-let ingredients = *];
-
-recipes.forEach(recipe=>{
-
-day*.forEach(day=>{
-
-const meal =
-docu*ent.getElementById(day).innerText;*
-if(meal === recipe.name){
-
-ingred*ents.push(
-...recipe.ingredients
-)*
-
-}
-
-});
-
-});
-
-ingredients =
-[...new Set(ingredients)];
-
-const list =*document.getElementById("shoppingL*st");
-
-list.innerHTML = "";
-
-ingre*ients.forEach(item=>{
-
-list.innerH*ML +=
-`<li>${item}</li>`;
-
-});
-
-}
-*function scrollToSection(id){
-
-doc*ment
-.getElementById(id)
-.scrollIn*oView({
-behavior:"smooth"
+document
+.getEl*mentById(id)
+.scrollIntoView({
+beh*vior:"smooth"
 });
 
 }
